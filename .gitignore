@@ -5,3 +5,4 @@
 /resource/
 /__pycache__/
 Makefile
+*.sql

@@ -1,0 +1,1218 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!--{% block title %}{{ context.title }}{% endblock %}-->
+<noindex><a href="#t-main-content" class="t-skiplink" rel="nofollow" aria-label="К основному контенту">К основному контенту</a></noindex>
+<div id="rec624942773" class="r t-rec" style="background-color:#333333; " data-animationappear="off" data-record-type="257" data-bg-color="#333333">
+    <!-- T228 -->
+    <div id="nav624942773marker"></div>
+    <div class="tmenu-mobile">
+        <div class="tmenu-mobile__container">
+            <div class="tmenu-mobile__text t-name t-name_md" field="menu_mob_title">Меню</div>
+            <button type="button" class="t-menuburger t-menuburger_first " aria-label="Навигационное меню" aria-expanded="false">
+                <span style="background-color:#fff;"></span>
+                <span style="background-color:#fff;"></span>
+                <span style="background-color:#fff;"></span>
+                <span style="background-color:#fff;"></span>
+            </button>
+            <script>
+                function t_menuburger_init(recid) {
+                    var rec = document.querySelector("#rec" + recid);
+                    if (!rec) return;
+                    var burger = rec.querySelector(".t-menuburger");
+                    if (!burger) return;
+                    var isSecondStyle = burger.classList.contains("t-menuburger_second");
+                    if (isSecondStyle && !window.isMobile && !("ontouchend" in document)) {
+                        burger.addEventListener("mouseenter", function() {
+                            if (burger.classList.contains("t-menuburger-opened")) return;
+                            burger.classList.remove("t-menuburger-unhovered");
+                            burger.classList.add("t-menuburger-hovered");
+                        });
+                        burger.addEventListener("mouseleave", function() {
+                            if (burger.classList.contains("t-menuburger-opened")) return;
+                            burger.classList.remove("t-menuburger-hovered");
+                            burger.classList.add("t-menuburger-unhovered");
+                            setTimeout(function() {
+                                burger.classList.remove("t-menuburger-unhovered");
+                            }, 300);
+                        });
+                    }
+                    burger.addEventListener("click", function() {
+                        if (!burger.closest(".tmenu-mobile") && !burger.closest(".t450__burger_container") && !burger.closest(".t466__container") && !burger.closest(".t204__burger") && !burger.closest(".t199__js__menu-toggler")) {
+                            burger.classList.toggle("t-menuburger-opened");
+                            burger.classList.remove("t-menuburger-unhovered");
+                        }
+                    });
+                    var menu = rec.querySelector('[data-menu="yes"]');
+                    if (!menu) return;
+                    var menuLinks = menu.querySelectorAll(".t-menu__link-item");
+                    var submenuClassList = [ "t978__menu-link_hook", "t978__tm-link", "t966__tm-link", "t794__tm-link", "t-menusub__target-link" ];
+                    Array.prototype.forEach.call(menuLinks, function(link) {
+                        link.addEventListener("click", function() {
+                            var isSubmenuHook = submenuClassList.some(function(submenuClass) {
+                                return link.classList.contains(submenuClass);
+                            });
+                            if (isSubmenuHook) return;
+                            burger.classList.remove("t-menuburger-opened");
+                        });
+                    });
+                    menu.addEventListener("clickedAnchorInTooltipMenu", function() {
+                        burger.classList.remove("t-menuburger-opened");
+                    });
+                }
+
+                t_onReady(function() {
+                    t_onFuncLoad("t_menuburger_init", function() {
+                        t_menuburger_init("624942773");
+                    });
+                });
+            </script>
+            <style>
+                .t-menuburger {
+                     position: relative;
+                     flex-shrink: 0;
+                     width: 28px;
+                     height: 20px;
+                     padding: 0;
+                     border: none;
+                     background-color: transparent;
+                     outline: none;
+                     -webkit-transform: rotate(0deg);
+                     transform: rotate(0deg);
+                     transition: transform .5s ease-in-out;
+                     cursor: pointer;
+                     z-index: 999;
+                }
+                /*---menu burger lines---*/
+                .t-menuburger span {
+                     display: block;
+                     position: absolute;
+                     width: 100%;
+                     opacity: 1;
+                     left: 0;
+                     -webkit-transform: rotate(0deg);
+                     transform: rotate(0deg);
+                     transition: .25s ease-in-out;
+                     height: 3px;
+                     background-color: #000;
+                }
+                .t-menuburger span:nth-child(1) {
+                     top: 0px;
+                }
+                .t-menuburger span:nth-child(2), .t-menuburger span:nth-child(3) {
+                     top: 8px;
+                }
+                .t-menuburger span:nth-child(4) {
+                     top: 16px;
+                }
+                /*menu burger big*/
+                .t-menuburger__big {
+                     width: 42px;
+                     height: 32px;
+                }
+                .t-menuburger__big span {
+                     height: 5px;
+                }
+                .t-menuburger__big span:nth-child(2), .t-menuburger__big span:nth-child(3) {
+                     top: 13px;
+                }
+                .t-menuburger__big span:nth-child(4) {
+                     top: 26px;
+                }
+                /*menu burger small*/
+                .t-menuburger__small {
+                     width: 22px;
+                     height: 14px;
+                }
+                .t-menuburger__small span {
+                     height: 2px;
+                }
+                .t-menuburger__small span:nth-child(2), .t-menuburger__small span:nth-child(3) {
+                     top: 6px;
+                }
+                .t-menuburger__small span:nth-child(4) {
+                     top: 12px;
+                }
+                /*menu burger opened*/
+                .t-menuburger-opened span:nth-child(1) {
+                     top: 8px;
+                     width: 0%;
+                     left: 50%;
+                }
+                .t-menuburger-opened span:nth-child(2) {
+                     -webkit-transform: rotate(45deg);
+                     transform: rotate(45deg);
+                }
+                .t-menuburger-opened span:nth-child(3) {
+                     -webkit-transform: rotate(-45deg);
+                     transform: rotate(-45deg);
+                }
+                .t-menuburger-opened span:nth-child(4) {
+                     top: 8px;
+                     width: 0%;
+                     left: 50%;
+                }
+                .t-menuburger-opened.t-menuburger__big span:nth-child(1) {
+                     top: 6px;
+                }
+                .t-menuburger-opened.t-menuburger__big span:nth-child(4) {
+                     top: 18px;
+                }
+                .t-menuburger-opened.t-menuburger__small span:nth-child(1), .t-menuburger-opened.t-menuburger__small span:nth-child(4) {
+                     top: 6px;
+                }
+                /*---menu burger first style---*/
+                @media (hover), (min-width:0\0) {
+                    .t-menuburger_first:hover span:nth-child(1) {
+                         transform: translateY(1px);
+                    }
+                    .t-menuburger_first:hover span:nth-child(4) {
+                         transform: translateY(-1px);
+                    }
+                    .t-menuburger_first.t-menuburger__big:hover span:nth-child(1) {
+                         transform: translateY(3px);
+                    }
+                    .t-menuburger_first.t-menuburger__big:hover span:nth-child(4) {
+                         transform: translateY(-3px);
+                    }
+                }
+                /*---menu burger second style---*/
+                .t-menuburger_second span:nth-child(2), .t-menuburger_second span:nth-child(3) {
+                     width: 80%;
+                     left: 20%;
+                     right: 0;
+                }
+                @media (hover), (min-width:0\0) {
+                    .t-menuburger_second.t-menuburger-hovered span:nth-child(2), .t-menuburger_second.t-menuburger-hovered span:nth-child(3) {
+                         animation: t-menuburger-anim 0.3s ease-out normal forwards;
+                    }
+                    .t-menuburger_second.t-menuburger-unhovered span:nth-child(2), .t-menuburger_second.t-menuburger-unhovered span:nth-child(3) {
+                         animation: t-menuburger-anim2 0.3s ease-out normal forwards;
+                    }
+                }
+                .t-menuburger_second.t-menuburger-opened span:nth-child(2), .t-menuburger_second.t-menuburger-opened span:nth-child(3){
+                     left: 0;
+                     right: 0;
+                     width: 100%!important;
+                }
+                /*---menu burger third style---*/
+                .t-menuburger_third span:nth-child(4) {
+                     width: 70%;
+                     left: unset;
+                     right: 0;
+                }
+                @media (hover), (min-width:0\0) {
+                    .t-menuburger_third:not(.t-menuburger-opened):hover span:nth-child(4) {
+                         width: 100%;
+                    }
+                }
+                .t-menuburger_third.t-menuburger-opened span:nth-child(4) {
+                     width: 0!important;
+                     right: 50%;
+                }
+                /*---menu burger fourth style---*/
+                .t-menuburger_fourth {
+                     height: 12px;
+                }
+                .t-menuburger_fourth.t-menuburger__small {
+                     height: 8px;
+                }
+                .t-menuburger_fourth.t-menuburger__big {
+                     height: 18px;
+                }
+                .t-menuburger_fourth span:nth-child(2), .t-menuburger_fourth span:nth-child(3) {
+                     top: 4px;
+                     opacity: 0;
+                }
+                .t-menuburger_fourth span:nth-child(4) {
+                     top: 8px;
+                }
+                .t-menuburger_fourth.t-menuburger__small span:nth-child(2), .t-menuburger_fourth.t-menuburger__small span:nth-child(3) {
+                     top: 3px;
+                }
+                .t-menuburger_fourth.t-menuburger__small span:nth-child(4) {
+                     top: 6px;
+                }
+                .t-menuburger_fourth.t-menuburger__small span:nth-child(2), .t-menuburger_fourth.t-menuburger__small span:nth-child(3) {
+                     top: 3px;
+                }
+                .t-menuburger_fourth.t-menuburger__small span:nth-child(4) {
+                     top: 6px;
+                }
+                .t-menuburger_fourth.t-menuburger__big span:nth-child(2), .t-menuburger_fourth.t-menuburger__big span:nth-child(3) {
+                     top: 6px;
+                }
+                .t-menuburger_fourth.t-menuburger__big span:nth-child(4) {
+                     top: 12px;
+                }
+                @media (hover), (min-width:0\0) {
+                    .t-menuburger_fourth:not(.t-menuburger-opened):hover span:nth-child(1) {
+                         transform: translateY(1px);
+                    }
+                    .t-menuburger_fourth:not(.t-menuburger-opened):hover span:nth-child(4) {
+                         transform: translateY(-1px);
+                    }
+                    .t-menuburger_fourth.t-menuburger__big:not(.t-menuburger-opened):hover span:nth-child(1) {
+                         transform: translateY(3px);
+                    }
+                    .t-menuburger_fourth.t-menuburger__big:not(.t-menuburger-opened):hover span:nth-child(4) {
+                         transform: translateY(-3px);
+                    }
+                }
+                .t-menuburger_fourth.t-menuburger-opened span:nth-child(1), .t-menuburger_fourth.t-menuburger-opened span:nth-child(4) {
+                     top: 4px;
+                }
+                .t-menuburger_fourth.t-menuburger-opened span:nth-child(2), .t-menuburger_fourth.t-menuburger-opened span:nth-child(3) {
+                     opacity: 1;
+                }
+                /*---menu burger animations---*/
+                @keyframes t-menuburger-anim {
+                    0% {
+                         width: 80%;
+                         left: 20%;
+                         right: 0;
+                    }
+                    50% {
+                         width: 100%;
+                         left: 0;
+                         right: 0;
+                    }
+                    100% {
+                         width: 80%;
+                         left: 0;
+                         right: 20%;
+                    }
+                }
+                @keyframes t-menuburger-anim2 {
+                    0% {
+                         width: 80%;
+                         left: 0;
+                    }
+                    50% {
+                         width: 100%;
+                         right: 0;
+                         left: 0;
+                    }
+                    100% {
+                         width: 80%;
+                         left: 20%;
+                         right: 0;
+                    }
+                }
+            </style>
+        </div>
+    </div>
+    <style>
+        .tmenu-mobile {
+             background-color: #111;
+             display: none;
+             width: 100%;
+             top: 0;
+             z-index: 990;
+        }
+        .tmenu-mobile_positionfixed {
+             position: fixed;
+        }
+        .tmenu-mobile__text {
+             color: #fff;
+        }
+        .tmenu-mobile__container {
+             min-height: 64px;
+             padding: 20px;
+             position: relative;
+             box-sizing: border-box;
+             display: -webkit-flex;
+             display: -ms-flexbox;
+             display: flex;
+             -webkit-align-items: center;
+             -ms-flex-align: center;
+             align-items: center;
+             -webkit-justify-content: space-between;
+             -ms-flex-pack: justify;
+             justify-content: space-between;
+        }
+        .tmenu-mobile__list {
+             display: block;
+        }
+        .tmenu-mobile__burgerlogo {
+             display: inline-block;
+             font-size: 24px;
+             font-weight: 400;
+             white-space: nowrap;
+             vertical-align: middle;
+        }
+        .tmenu-mobile__imglogo {
+             height: auto;
+             display: block;
+             max-width: 300px!important;
+             box-sizing: border-box;
+             padding: 0;
+             margin: 0 auto;
+        }
+        @media screen and (max-width: 980px) {
+            .tmenu-mobile__menucontent_hidden {
+                 display: none;
+                 height: 100%;
+            }
+            .tmenu-mobile {
+                 display: block;
+            }
+        }
+        @media screen and (max-width: 980px) {
+            #rec624942773 .t-menuburger {
+                 -webkit-order: 1;
+                 -ms-flex-order: 1;
+                 order: 1;
+            }
+        }
+        @media screen and (max-width: 640px) {
+            #rec617068547 .t-menuburger {
+                 order: 1;
+            }
+        }
+        @media screen and (max-width: 420px) {
+            #rec617068547 .t-menuburger {
+                 order: 1;
+            }
+        }
+    </style>
+    <div id="nav624942773" class="t228 t228__positionstatic tmenu-mobile__menucontent_hidden" style="background-color: rgba(51,51,51,1); height:70px; " data-bgcolor-hex="#333333" data-bgcolor-rgba="rgba(51,51,51,1)" data-navmarker="nav624942773marker"
+    data-appearoffset="" data-bgopacity-two="" data-menushadow="" data-bgopacity="1" data-menu-items-align="center" data-menu="yes">
+        <div class="t228__maincontainer t228__c12collumns" style="height:70px;">
+            <div class="t228__padding40px"></div>
+            <div class="t228__leftside" style="min-width: 262px;">
+                <div class="t228__leftcontainer">
+                    <a href="/" class="t228__imgwrapper" style="color:#ffffff;font-size:32px;font-weight:600;">
+                        <div class="t228__logo t-title" field="title" style="color:#ffffff;font-size:32px;font-weight:600;">МаКошь</div>
+                    </a>
+                </div>
+            </div>
+            <div class="t228__centerside">
+                <nav class="t228__centercontainer" aria-label="Основная навигация">
+                    <ul role="list" class="t228__list t-menu__list">
+                        <li class="t228__list_item" style="padding:0 15px 0 0;">
+                            <a class="t-menu__link-item" href="#braslet" data-menu-submenu-hook="" data-menu-item-number="1" style="color:#f0f0f0;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">Браслеты</a>
+                        </li>
+                        <li class="t228__list_item" style="padding:0 15px;">
+                            <a class="t-menu__link-item" href="#svecha" data-menu-submenu-hook="" data-menu-item-number="2" style="color:#f0f0f0;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">Свечи-травы</a>
+                        </li>
+                        <li class="t228__list_item" style="padding:0 0 0 15px;">
+                            <a class="t-menu__link-item" href="#kukla" data-menu-submenu-hook="" data-menu-item-number="3" style="color:#f0f0f0;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">Куклы-обереги</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="t228__rightside" style="min-width: 262px;">
+                <div class="t228__rightcontainer">
+                    <div class="t228__right_descr" style="color:#f0f0f0;font-size:18px;font-weight:600;">
+                        vk.com/ma_cosh
+                        <br>{{ context.phone }}</div>
+                    <div class="t-sociallinks">
+                        <ul role="list" class="t-sociallinks__wrapper" aria-label="Соц. сети">
+                            <!-- new soclinks -->
+                            <li class="t-sociallinks__item t-sociallinks__item_vk">
+                                <a href="https://vk.com/ma_cosh" target="_blank" rel="nofollow noopener" aria-label="МаКошь" title="МаКошь" style="width: 30px; height: 30px;">
+                                    <svg class="t-sociallinks__svg" role="presentation" width="30px" height="30px" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M50 100c27.614 0 50-22.386 50-50S77.614 0 50 0 0 22.386 0 50s22.386 50 50 50ZM25 34c.406 19.488 10.15 31.2 27.233 31.2h.968V54.05c6.278.625 11.024 5.216 12.93 11.15H75c-2.436-8.87-8.838-13.773-12.836-15.647C66.162 47.242 71.783 41.62 73.126 34h-8.058c-1.749 6.184-6.932 11.805-11.867 12.336V34h-8.057v21.611C40.147 54.362 33.838 48.304 33.556 34H25Z"
+                                        fill="#f0f0f0"></path>
+                                    </svg>
+                                </a>
+                            </li>
+                            <!-- /new soclinks -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="t228__padding40px"></div>
+        </div>
+    </div>
+    <style>
+        @media screen and (max-width: 980px) {
+        #rec624942773 .t228__leftcontainer {
+        padding: 20px;
+        }
+        #rec624942773 .t228__imglogo {
+        padding: 20px 0;
+        }
+        #rec624942773 .t228 {
+        position: static;
+        }
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function () {
+        t_onFuncLoad('t228_setWidth', function () {
+        t228_setWidth('624942773');
+        });
+        });
+        window.addEventListener('resize', t_throttle(function () {
+        t_onFuncLoad('t228_setWidth', function () {
+        t228_setWidth('624942773');
+        });
+        t_onFuncLoad('t_menu__setBGcolor', function () {
+        t_menu__setBGcolor('624942773', '.t228');
+        });
+        }));
+        t_onReady(function () {
+        t_onFuncLoad('t_menu__highlightActiveLinks', function () {
+        t_menu__highlightActiveLinks('.t228__list_item a');
+        });
+        t_onFuncLoad('t228__init', function () {
+        t228__init('624942773');
+        });
+        t_onFuncLoad('t_menu__setBGcolor', function () {
+        t_menu__setBGcolor('624942773', '.t228');
+        });
+        t_onFuncLoad('t_menu__interactFromKeyboard', function () {
+        t_menu__interactFromKeyboard('624942773');
+        });
+        t_onFuncLoad('t228_setWidth', function () {
+        t228_setWidth('624942773');
+        });
+        t_onFuncLoad('t_menu__createMobileMenu', function () {
+        t_menu__createMobileMenu('624942773', '.t228');
+        });
+        });
+    </script>
+    <style>
+        #rec624942773 .t-menu__link-item{
+        -webkit-transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        position: relative;
+        }
+        #rec624942773 .t-menu__link-item:not(.t-active):not(.tooltipstered)::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 20%;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        border-bottom: 1px solid #ffffff;
+        -webkit-box-shadow: inset 0px -1px 0px 0px #ffffff;
+        -moz-box-shadow: inset 0px -1px 0px 0px #ffffff;
+        box-shadow: inset 0px -1px 0px 0px #ffffff;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        }
+        #rec624942773 .t-menu__link-item.t-active:not(.t978__menu-link){
+        color:#ffffff !important; }
+        #rec624942773 .t-menu__link-item:not(.t-active):not(.tooltipstered):hover,
+        #rec624942773 .t-menu__link-item:not(.t-active):not(.tooltipstered):focus-visible{
+        color: #ffffff !important; }
+        #rec624942773 .t-menu__link-item:not(.t-active):not(.tooltipstered):hover::after,
+        #rec624942773 .t-menu__link-item:not(.t-active):not(.tooltipstered):focus-visible::after{
+        opacity: 1;
+        bottom: -1px; }
+        @supports (overflow:-webkit-marquee) and (justify-content:inherit)
+        {
+        #rec624942773 .t-menu__link-item,
+        #rec624942773 .t-menu__link-item.t-active {
+        opacity: 1 !important;
+        }
+        }
+    </style>
+</div>
+<div id="t-main-content"></div>
+<div id="rec624942774" class="r t-rec t-rec_pt_60 t-rec_pb_60" style="padding-top:60px;padding-bottom:60px;background-color:#333333; " data-record-type="474" data-bg-color="#333333" data-animationappear="off">
+    <!-- T474 -->
+    <div class="t474">
+        <div class="t-container t-align_left">
+            <div class="t-col t-col_10 ">
+                <div class="t474__descr t-descr t-descr_xxxl " field="descr" style="color:#f0f0f0;">
+                    Мы создаем <strong>браслеты и аксессуары ручной работы</strong>.
+                    <br>Все предметы сделаны с любовью и вдохновением <strong>из качественных натуральных материалов</strong>.
+                    <br>Выберите цвет, размер и стиль и носите их с удовольствием.</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="rec624942775" class="r t-rec r_showed r_anim" style=" " data-record-type="215">
+    <a name="braslet" style="font-size:0;"></a>
+</div>
+<div id="rec624947525" class="r t-rec t-rec_pt_60 t-rec_pb_0" style="padding-top:60px;padding-bottom:0px;background-color:#000000; " data-animationappear="off" data-record-type="744" data-bg-color="#000000">
+    <!-- t744 -->
+    <div class="t744">
+        <div class="t-container js-product js-product-single ">
+            <div class="t744__col t744__col_first t-col t-col_6 ">
+                <!-- gallery -->
+                <div class="t-slds">
+                    <div class="t-slds__main" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                        <div class="t-slds__container" style="background-color:#333333;">
+                            <style>
+                            .mySlides_braslet {display:none;}
+                            </style>
+                            <div class="t-slds__items-wrapper w3-content w3-display-container" style="height:560px; ">
+                                {% for item in images.braslet_img %}
+                                <div class="w3-display-container mySlides_braslet">
+                                    <img src='data:image/jpeg;base64, {{ item.image_file }}' style="width:100%;" alt="{{ item.image_alt }}">
+                                    <div class="w3-display-topleft w3-medium w3-container w3-padding w3-black">{{ item.image_alt|truncate(60, False, '...', 0) }}</div>
+                                </div>
+                                {% endfor %}
+                                <button class="w3-button w3-display-left" style="background-color: rgb(255, 98, 59);" onclick="plusDivs_braslet(-1)">&#10094;</button>
+                                <button class="w3-button w3-display-right" style="background-color: rgb(255, 98, 59);" onclick="plusDivs_braslet(1)">&#10095;</button>
+                            </div>
+                            <script>
+                            var slideIndex_braslet = 1;
+                            showDivs_braslet(slideIndex_braslet);
+
+                            function plusDivs_braslet(n) {
+                              showDivs_braslet(slideIndex_braslet += n);
+                            }
+
+                            function showDivs_braslet(n) {
+                              var i;
+                              var x = document.getElementsByClassName("mySlides_braslet");
+                              if (n > x.length) {slideIndex_braslet = 1}
+                              if (n < 1) {slideIndex_braslet = x.length}
+                              for (i = 0; i < x.length; i++) {
+                                 x[i].style.display = "none";
+                              }
+                              x[slideIndex_braslet-1].style.display = "block";
+                            }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <!--/gallery -->
+            </div>
+            <div class="t744__col t-col t-col_6 ">
+                <div class="t744__info ">
+                    <div class="t744__textwrapper">
+                        <div class="t744__title-wrapper">
+                            <h1 class="t744__title t-name t-name_xl js-product-name" field="title" style="font-size:32px;">{{ context.braslet_text.service_title }}</h1> </div>
+                        <div class="t744__price-wrapper ">
+                            <div class="t744__price t744__price-item t-name t-name_md " style="margin-right:5px;font-size:22px;">
+                                <div class="t744__price-value js-product-price notranslate " translate="no" field="price" data-redactor-toolbar="no">{{ context.braslet_text.service_price }}</div>
+                                <div class="t744__price-currency js-product-price-currency">р.</div>
+                            </div>
+                            <div class="t744__price_old t744__price-item t-name t-name_md " style="font-size:22px;">
+                                <div class="t744__price-value " data-redactor-toolbar="no" field="price_old">{{ context.braslet_text.service_old_price }}</div>
+                                <div class="t744__price-currency js-product-price-currency">р.</div>
+                            </div>
+                        </div>
+                        <div class="js-product-controls-wrapper"></div>
+                        <div class="t744__btn-wrapper t1002__btns-wrapper">
+                            <a href="https://vk.com/market-218160567?w=product-218160567_8738281" target="" class="t744__btn t-btn t-btn_sm " style="color:#ffffff;background-color:#ff623b;border-radius:7px; -moz-border-radius:7px; -webkit-border-radius:7px;">
+                                <table role="presentation" style="width:100%; height:100%;">
+                                    <tbody>
+                                        <tr>
+                                            <td>Купить</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </a>
+                        </div>
+                        <div class="t744__descr t-descr t-descr_xxs" field="descr" style="font-size:20px;">
+                            {{ context.braslet_text.service_description|safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style type="text/css">
+        #rec624947525 .t-slds__bullet_active .t-slds__bullet_body {
+             background-color: #222 !important;
+        }
+         #rec624947525 .t-slds__bullet:hover .t-slds__bullet_body {
+             background-color: #222 !important;
+        }
+    </style>
+    <style>
+        @media (hover), (min-width:0\0) {
+             #rec624947525 .t-btn:not(.t-animate_no-hover):hover, #rec624947525 .t-btn:not(.t-animate_no-hover):focus-visible {background: #ff623b !important;color: #000 !important; }
+             #rec624947525 .t-btn:not(.t-animate_no-hover){
+                 -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+                 transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            }
+             #rec624947525 .t-btntext:not(.t-animate_no-hover):hover{
+            }
+        }
+    </style>
+</div>
+<div id="rec624948442" class="r t-rec r_showed r_anim" style=" " data-record-type="215">
+    <a name="svecha" style="font-size:0;"></a>
+</div>
+<div id="rec624948575" class="r t-rec t-rec_pt_60 t-rec_pb_0" style="padding-top:60px;padding-bottom:0px; " data-animationappear="off" data-record-type="744">
+    <!-- t744 -->
+    <div class="t744">
+        <div class="t-container js-product js-product-single ">
+            <div class="t744__col t744__col_first t-col t-col_6 ">
+                <div class="t744__info ">
+                    <div class="t744__textwrapper">
+                        <div class="t744__title-wrapper">
+                            <h2 class="t744__title t-name t-name_xl js-product-name" field="title" style="font-size:32px;">{{ context.svechi_text.service_title }}</h2> </div>
+                        <div class="t744__price-wrapper ">
+                            <div class="t744__price t744__price-item t-name t-name_md " style="margin-right:5px;font-size:22px;">
+                                <div class="t744__price-value js-product-price notranslate " translate="no" field="price" data-redactor-toolbar="no">{{ context.svechi_text.service_price }}</div>
+                                <div class="t744__price-currency js-product-price-currency">р.</div>
+                            </div>
+                            <div class="t744__price_old t744__price-item t-name t-name_md " style="font-size:22px;">
+                                <div class="t744__price-value " data-redactor-toolbar="no" field="price_old">{{ context.svechi_text.service_old_price }}</div>
+                                <div class="t744__price-currency js-product-price-currency">р.</div>
+                            </div>
+                        </div>
+                        <div class="js-product-controls-wrapper"></div>
+                        <div class="t744__btn-wrapper t1002__btns-wrapper">
+                            <a href="https://vk.com/ma_cosh" target="" class="t744__btn t-btn t-btn_sm " style="color:#ffffff;background-color:#ff623b;border-radius:7px; -moz-border-radius:7px; -webkit-border-radius:7px;">
+                                <table role="presentation" style="width:100%; height:100%;">
+                                    <tbody>
+                                        <tr>
+                                            <td>Купить</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </a>
+                        </div>
+                        <div class="t744__descr t-descr t-descr_xxs" field="descr" style="font-size:20px;">
+                            {{ context.svechi_text.service_description|safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="t744__col t-col t-col_6 ">
+                <!-- gallery -->
+                <div class="t-slds">
+                    <div class="t-slds__main" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                        <div class="t-slds__container" style="background-color:#333333;">
+                            <style>
+                            .mySlides_candle {display:none;}
+                            </style>
+                            <div class="t-slds__items-wrapper w3-content w3-display-container" style="height:560px; ">
+                                {% for item in images.svechi_img %}
+                                <div class="w3-display-container mySlides_candle">
+                                    <img src='data:image/jpeg;base64, {{ item.image_file }}' style="width:100%;" alt="{{ item.image_alt }}">
+                                    <div class="w3-display-topleft w3-medium w3-container w3-padding w3-black">{{ item.image_alt|truncate(60, False, '...', 0) }}</div>
+                                </div>
+                                {% endfor %}
+                                <button class="w3-button w3-display-left" style="background-color: rgb(255, 98, 59);" onclick="plusDivs_candle(-1)">&#10094;</button>
+                                <button class="w3-button w3-display-right" style="background-color: rgb(255, 98, 59);" onclick="plusDivs_candle(1)">&#10095;</button>
+                            </div>
+                            <script>
+                            var slideIndex_candle = 1;
+                            showDivs_candle(slideIndex_candle);
+
+                            function plusDivs_candle(n) {
+                              showDivs_candle(slideIndex_candle += n);
+                            }
+
+                            function showDivs_candle(n) {
+                              var i;
+                              var x = document.getElementsByClassName("mySlides_candle");
+                              if (n > x.length) {slideIndex_candle = 1}
+                              if (n < 1) {slideIndex_candle = x.length}
+                              for (i = 0; i < x.length; i++) {
+                                 x[i].style.display = "none";
+                              }
+                              x[slideIndex_candle-1].style.display = "block";
+                            }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <!--/gallery -->
+            </div>
+        </div>
+    </div>
+    <style type="text/css">
+        #rec624948575 .t-slds__bullet_active .t-slds__bullet_body {
+             background-color: #222 !important;
+        }
+         #rec624948575 .t-slds__bullet:hover .t-slds__bullet_body {
+             background-color: #222 !important;
+        }
+    </style>
+    <style>
+        @media (hover), (min-width:0\0) {
+             #rec624948575 .t-btn:not(.t-animate_no-hover):hover, #rec624948575 .t-btn:not(.t-animate_no-hover):focus-visible {background: #ff623b !important;color: #000 !important; }
+             #rec624948575 .t-btn:not(.t-animate_no-hover){
+                 -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+                 transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            }
+             #rec624948575 .t-btntext:not(.t-animate_no-hover):hover{
+            }
+        }
+    </style>
+</div>
+<div id="rec624948705" class="r t-rec r_anim r_showed" style=" " data-record-type="215">
+    <a name="kukla" style="font-size:0;"></a>
+</div>
+<div id="rec624948792" class="r t-rec t-rec_pt_60 t-rec_pb_60" style="padding-top:60px;padding-bottom:60px; " data-animationappear="off" data-record-type="744">
+    <!-- t744 -->
+    <div class="t744">
+        <div class="t-container js-product js-product-single ">
+            <div class="t744__col t744__col_first t-col t-col_6 ">
+                <!-- gallery -->
+                <div class="t-slds">
+                    <div class="t-slds__main" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                        <div class="t-slds__container" style="background-color:#333333;">
+                            <style>
+                            .mySlides_kukla {display:none;}
+                            </style>
+                            <div class="t-slds__items-wrapper w3-content w3-display-container" style="height:560px;">
+                                {% for item in images.kukli_img %}
+                                <div class="w3-display-container mySlides_kukla">
+                                    <img src='data:image/jpeg;base64, {{ item.image_file }}' style="width:100%;" alt="{{ item.image_alt }}">
+                                    <div class="w3-display-topleft w3-medium w3-container w3-padding w3-black">{{ item.image_alt|truncate(60, False, '...', 0) }}</div>
+                                </div>
+                                {% endfor %}
+                                <button class="w3-button w3-display-left" style="background-color: rgb(255, 98, 59);" onclick="plusDivs_kukla(-1)">&#10094;</button>
+                                <button class="w3-button w3-display-right" style="background-color: rgb(255, 98, 59);" onclick="plusDivs_kukla(1)">&#10095;</button>
+                            </div>
+                            <script>
+                            var slideIndex_kukla = 1;
+                            showDivs_kukla(slideIndex_kukla);
+
+                            function plusDivs_kukla(n) {
+                              showDivs_kukla(slideIndex_kukla += n);
+                            }
+
+                            function showDivs_kukla(n) {
+                              var i;
+                              var x = document.getElementsByClassName("mySlides_kukla");
+                              if (n > x.length) {slideIndex_kukla = 1}
+                              if (n < 1) {slideIndex_kukla = x.length}
+                              for (i = 0; i < x.length; i++) {
+                                 x[i].style.display = "none";
+                              }
+                              x[slideIndex_kukla-1].style.display = "block";
+                            }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <!--/gallery -->
+            </div>
+            <div class="t744__col t-col t-col_6 ">
+                <div class="t744__info ">
+                    <div class="t744__textwrapper">
+                        <div class="t744__title-wrapper">
+                            <h2 class="t744__title t-name t-name_xl js-product-name" field="title" style="font-size:32px;">{{ context.kukli_text.service_title }}</h2> </div>
+                        <div class="t744__price-wrapper ">
+                            <div class="t744__price t744__price-item t-name t-name_md " style="margin-right:5px;font-size:22px;">
+                                <div class="t744__price-value js-product-price notranslate " translate="no" field="price" data-redactor-toolbar="no">{{ context.kukli_text.service_price }}</div>
+                                <div class="t744__price-currency js-product-price-currency">р.</div>
+                            </div>
+                            <div class="t744__price_old t744__price-item t-name t-name_md " style="font-size:22px;">
+                                <div class="t744__price-value " data-redactor-toolbar="no" field="price_old">{{ context.kukli_text.service_old_price }}</div>
+                                <div class="t744__price-currency js-product-price-currency">р.</div>
+                            </div>
+                        </div>
+                        <div class="js-product-controls-wrapper"></div>
+                        <div class="t744__btn-wrapper t1002__btns-wrapper">
+                            <a href="https://vk.com/market-218160567?w=product-218160567_8839116" target="" class="t744__btn t-btn t-btn_sm " style="color:#ffffff;background-color:#ff623b;border-radius:7px; -moz-border-radius:7px; -webkit-border-radius:7px;">
+                                <table role="presentation" style="width:100%; height:100%;">
+                                    <tbody>
+                                        <tr>
+                                            <td>Купить</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </a>
+                        </div>
+                        <div class="t744__descr t-descr t-descr_xxs" field="descr" style="font-size:20px;">
+                            {{ context.kukli_text.service_description|safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style type="text/css">
+        #rec624948792 .t-slds__bullet_active .t-slds__bullet_body {
+             background-color: #222 !important;
+        }
+         #rec624948792 .t-slds__bullet:hover .t-slds__bullet_body {
+             background-color: #222 !important;
+        }
+    </style>
+    <style>
+        @media (hover), (min-width:0\0) {
+             #rec624948792 .t-btn:not(.t-animate_no-hover):hover, #rec624948792 .t-btn:not(.t-animate_no-hover):focus-visible {background: #ff623b !important;color: #000 !important; }
+             #rec624948792 .t-btn:not(.t-animate_no-hover){
+                 -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+                 transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            }
+             #rec624948792 .t-btntext:not(.t-animate_no-hover):hover{
+            }
+        }
+    </style>
+</div>
+<div id="rec624949566" class="r t-rec t-rec_pt_90 t-rec_pb_30" style="padding-top:90px;padding-bottom:30px;background-color:#333333; " data-record-type="502" data-bg-color="#333333" data-animationappear="off">
+    <!-- t502 -->
+    <div class="t502">
+        <div class="t-section__container t-container">
+            <div class="t-col t-col_12">
+                <div class="t-section__topwrapper t-align_center">
+                    <h3 class="t-section__title t-title t-title_xs" field="btitle">Наши преимущества</h3>
+                    <div class="t-section__descr t-descr t-descr_xl t-margin_auto" field="bdescr">
+                        Каждый день мы создаем и экспериментируем, чтобы сделать наших клиентов счастливыми
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ul role="list" class="t502__container t-list__container_inrow3 t-container">
+            <li class="t502__col t-col t-col_4 t-list__item t-align_left t-item">
+                <div class="t502__tablewrapper">
+                    <div class="t502__circlewrapper">
+                        <div class="t502__circle t-title" style="background-color:#ff623b; color:#000000;">1</div>
+                    </div>
+                    <div class="t502__textwrapper">
+                        <div class="t502__title t-name t-name_sm" style=" " field="li_title__1476980540792">
+                            Всегда изящные браслеты
+                        </div>
+                        <div class="t502__blockdescr t-descr t-descr_xs" style="" field="li_descr__1476980540792">
+                            Наши браслеты будут вас радовать очень долгое время
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="t502__col t-col t-col_4 t-list__item t-align_left t-item">
+                <div class="t502__tablewrapper">
+                    <div class="t502__circlewrapper">
+                        <div class="t502__circle t-title" style="background-color:#ff623b; color:#000000;">2</div>
+                    </div>
+                    <div class="t502__textwrapper">
+                        <div class="t502__title t-name t-name_sm" style=" " field="li_title__1476980557179">
+                            Быстрая доставка
+                        </div>
+                        <div class="t502__blockdescr t-descr t-descr_xs" style="" field="li_descr__1476980557179">
+                            Мы доставляем браслеты в течение 5 дней после заказа
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="t502__col t-col t-col_4 t-list__item t-align_left t-item">
+                <div class="t502__tablewrapper">
+                    <div class="t502__circlewrapper">
+                        <div class="t502__circle t-title" style="background-color:#ff623b; color:#000000;">3</div>
+                    </div>
+                    <div class="t502__textwrapper">
+                        <div class="t502__title t-name t-name_sm" style=" " field="li_title__1476980560541">
+                            Талантливые специалисты
+                        </div>
+                        <div class="t502__blockdescr t-descr t-descr_xs" style="" field="li_descr__1476980560541">
+                            Все наши мастера имеют многолетний опыт работы
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="rec624949612" class="r t-rec t-rec_pt_30 t-rec_pb_30" style="padding-top:30px;padding-bottom:30px;background-color:#333333; " data-animationappear="off" data-record-type="670" data-bg-color="#333333">
+    <!-- t670 -->
+    <div class="t670">
+        <div class="t-slds">
+            <style>
+            .mySlides_sl {display:none}
+            .w3-left, .w3-right, .w3-badge {cursor:pointer}
+            .w3-badge {height:13px;width:13px;padding:0}
+            </style>
+            <div class="w3-content w3-display-container" style="max-width:960px; height:450px; display: flex; flex-wrap: wrap; align-content:center; overflow:hidden;">
+                {% for item in images.slider %}
+                <img class="mySlides_sl" src="data:image/jpeg;base64, {{ item.image_file }}" style="width:100%">
+                {% endfor %}
+                <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+                    <div class="w3-button w3-display-left" style="background-color: rgb(255, 98, 59);" onclick="plusDivs_sl(-1)">&#10094;</div>
+                    <div class="w3-button w3-display-right" style="background-color: rgb(255, 98, 59);" onclick="plusDivs_sl(1)">&#10095;</div>
+                    {% for number in range(1, 1 + images.slider|count) %}
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv_sl({{ number }})"></span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <script>
+            var slideIndex_sl = 1;
+            showDivs_sl(slideIndex_sl);
+
+            function plusDivs_sl(n) {
+              showDivs_sl(slideIndex_sl += n);
+            }
+
+            function currentDiv_sl(n) {
+              showDivs_sl(slideIndex_sl = n);
+            }
+
+            function showDivs_sl(n) {
+              var i;
+              var x = document.getElementsByClassName("mySlides_sl");
+              var dots = document.getElementsByClassName("demo");
+              if (n > x.length) {slideIndex_sl = 1}
+              if (n < 1) {slideIndex_sl = x.length}
+              for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+              }
+              for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" w3-white", "");
+              }
+              x[slideIndex_sl-1].style.display = "block";
+              dots[slideIndex_sl-1].className += " w3-white";
+            }
+            </script>
+        </div>
+    </div>
+    <script>
+        t_onReady(function() {
+            setTimeout(function() {
+                t_onFuncLoad("t670_init", function() {
+                    t670_init("624949612");
+                });
+                t_onFuncLoad("t_sldsInit", function() {
+                    t_sldsInit("624949612");
+                });
+            }, 500);
+            var rec = document.querySelector("#rec624949612");
+            if (rec) {
+                var wrapper = rec.querySelector(".t670");
+                if (wrapper) {
+                    wrapper.addEventListener("displayChanged", function() {
+                        t_onFuncLoad("t_slds_updateSlider", function() {
+                            t_slds_updateSlider("624949612");
+                        });
+                        t_onFuncLoad("t_slds_positionArrows", function() {
+                            t_slds_positionArrows("624949612");
+                        });
+                    });
+                }
+            }
+        });
+    </script>
+    <style>
+        #rec624949612 .t-slds__bullet_active .t-slds__bullet_body {
+             background-color: #222 !important;
+        }
+         #rec624949612 .t-slds__bullet:hover .t-slds__bullet_body {
+             background-color: #222 !important;
+        }
+    </style>
+</div>
+<div id="rec624949378" class="r t-rec t-rec_pt_15 t-rec_pb_15" style="padding-top:15px;padding-bottom:15px;background-color:#333333; " data-record-type="30" data-bg-color="#333333" data-animationappear="off">
+    <!-- T015 -->
+    <div class="t015">
+        <div class="t-container t-align_center">
+            <div class="t-col t-col_8 t-prefix_2" style="box-sizing: content-box;">
+                <h3 class="t015__title t-title t-title_lg" field="title" style="font-size:42px;">Создайте свой уникальный браслет</h3>
+                <div class="t015__descr t-descr t-descr_xl" field="descr" style="font-size:24px;">
+                    Если вам не подошел никакой из наших готовых браслетов, вы можете заказать браслет с любым дизайном.<br>
+                    Также вы можете заказать у нас куклу-оберег или свечи.<br>
+                    Заполните форму и оставьте свои контакты и пожелания.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="rec624966349" class="r t-rec t-rec_pt_0 t-rec_pb_15" style="padding-top:30px;padding-bottom:15px; " data-animationappear="off" data-record-type="678">
+    <!-- t678 -->
+    <div class="t678">
+        <div class="t-container">
+            <div class="t-col t-col_8 t-prefix_2" style="box-sizing: content-box;">
+                <div>
+                    <form id="form624966349" name="form624966349" role="form" method="POST" data-formactiontype="0" data-inputbox=".t-input-group" class="t-form js-form-proccess t-form_inputs-total_3 " data-success-callback="t678_onSuccess">
+                        <div class="js-successbox t-form__successbox t-text t-text_md" aria-live="polite" style="display:none;"></div>
+                        <div class="t-form__inputsbox">
+                            <div class="t-input-group t-input-group_nm" data-input-lid="user_name">
+                                <label for="input_user_name" class="t-input-title t-descr t-descr_md" id="field-input_user_name" data-redactor-toolbar="no" field="li_title__1494858943227" style="color:;">Имя</label>
+                                <div class="t-input-block" style="border-radius: 7px; -moz-border-radius: 7px; -webkit-border-radius: 7px;">
+                                    <input type="text" autocomplete="name" name="user_name" id="input_user_name" class="t-input js-tilda-rule " value="" placeholder="Ваше имя" data-tilda-req="1" aria-required="true" data-tilda-rule="name" aria-describedby="error_1494858943227"
+                                    style="color:#000000;border:1px solid #000000;background-color:#eee;border-radius: 7px; -moz-border-radius: 7px; -webkit-border-radius: 7px;" required>
+                                    <div class="t-input-error" aria-live="polite" id="error_1494858943227"></div>
+                                </div>
+                            </div>
+                            <div class="t-input-group t-input-group_ph" data-input-lid="1493283059688" data-init-mask="yes">
+                                <label for="input_user_contact" class="t-input-title t-descr t-descr_md" id="field-input_user_contact" data-redactor-toolbar="no" field="li_title__1493283059688" style="color:;">Способ связи с вами</label>
+                                <div class="t-input-block" style="border-radius: 7px; -moz-border-radius: 7px; -webkit-border-radius: 7px;">
+                                    <input type="text" class="t-input js-tilda-rule " name="user_contact" id="input_user_contact" value="" placeholder="Телефон / Мессенджер / Соц.сети" data-tilda-req="1" aria-required="true" data-tilda-rule="contact" aria-describedby="error_1493283059688"
+                                    style="color:#000000;border:1px solid #000000;background-color:#eee;border-radius: 7px; -moz-border-radius: 7px; -webkit-border-radius: 7px;" required>
+                                    <div class="t-input-error" aria-live="polite" id="error_1493283059688"></div>
+                                </div>
+                            </div>
+                            <div class="t-input-group t-input-group_ta" data-input-lid="1495027254430">
+                                <label for="input_user_request" class="t-input-title t-descr t-descr_md" id="field-input_user_request" data-redactor-toolbar="no" field="li_title__1495027254430" style="color:;">Ваши пожелания</label>
+                                <div class="t-input-block" style="border-radius: 7px; -moz-border-radius: 7px; -webkit-border-radius: 7px;">
+                                    <textarea name="user_request" id="input_user_request" class="t-input js-tilda-rule " placeholder="Введите текст" data-tilda-req="1" aria-required="true" aria-describedby="error_1495027254430" style="color:#000000; border:1px solid #000000; background-color:#eee; border-radius: 7px; -moz-border-radius: 7px; -webkit-border-radius: 7px;height:102px;"
+                                    rows="3" required></textarea>
+                                    <div class="t-input-error" aria-live="polite" id="error_1495027254430"></div>
+                                </div>
+                            </div>
+                            <div class="t-form__errorbox-middle">
+                                <div class="js-errorbox-all t-form__errorbox-wrapper" style="display:none;">
+                                    <div class="t-form__errorbox-text t-text t-text_md">
+                                        <p class="t-form__errorbox-item js-rule-error js-rule-error-all"></p>
+                                        <p class="t-form__errorbox-item js-rule-error js-rule-error-req"></p>
+                                        <p class="t-form__errorbox-item js-rule-error js-rule-error-email"></p>
+                                        <p class="t-form__errorbox-item js-rule-error js-rule-error-name"></p>
+                                        <p class="t-form__errorbox-item js-rule-error js-rule-error-phone"></p>
+                                        <p class="t-form__errorbox-item js-rule-error js-rule-error-minlength"></p>
+                                        <p class="t-form__errorbox-item js-rule-error js-rule-error-string"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="t-form__submit">
+                                <button type="submit" class="t-btn t-submit t-btn_md" style="color: #fff; background-color: #ff623b; border-radius: 7px; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 30px 0px;">
+                                    Отправить
+                                </button>
+                            </div>
+                        </div>
+                        <div class="t-form__errorbox-bottom">
+                            <div class="js-errorbox-all t-form__errorbox-wrapper" style="display:none;">
+                                <div class="t-form__errorbox-text t-text t-text_md">
+                                    <p class="t-form__errorbox-item js-rule-error js-rule-error-all"></p>
+                                    <p class="t-form__errorbox-item js-rule-error js-rule-error-req"></p>
+                                    <p class="t-form__errorbox-item js-rule-error js-rule-error-email"></p>
+                                    <p class="t-form__errorbox-item js-rule-error js-rule-error-name"></p>
+                                    <p class="t-form__errorbox-item js-rule-error js-rule-error-phone"></p>
+                                    <p class="t-form__errorbox-item js-rule-error js-rule-error-minlength"></p>
+                                    <p class="t-form__errorbox-item js-rule-error js-rule-error-string"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="position: absolute; left: -5000px; bottom: 0; display: none;">
+                            <input type="text" name="form-spec-comments" value="Its good" class="js-form-spec-comments" tabindex="-1">
+                        </div>
+                    </form>
+                    <style>
+                        #rec624966349 input::-webkit-input-placeholder {color:#000000; opacity: 0.5;}
+                        #rec624966349 input::-moz-placeholder {color:#000000; opacity: 0.5;}
+                        #rec624966349 input:-moz-placeholder {color:#000000; opacity: 0.5;}
+                        #rec624966349 input:-ms-input-placeholder {color:#000000; opacity: 0.5;}
+                        #rec624966349 textarea::-webkit-input-placeholder {color:#000000; opacity: 0.5;}
+                        #rec624966349 textarea::-moz-placeholder {color:#000000; opacity: 0.5;}
+                        #rec624966349 textarea:-moz-placeholder {color:#000000; opacity: 0.5;}
+                        #rec624966349 textarea:-ms-input-placeholder {color:#000000; opacity: 0.5;}
+                    </style>
+                    <style>
+                        @media (hover), (min-width:0\0) {
+                        #rec624966349 .t-btn:not(.t-animate_no-hover):hover,
+                        #rec624966349 .t-btn:not(.t-animate_no-hover):focus-visible {background: #ff623b !important;color: #000 !important; }
+                        #rec624966349 .t-btn:not(.t-animate_no-hover){-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;}
+                        #rec624966349 .t-btntext:not(.t-animate_no-hover):hover{color: #ffffff !important; }
+                        }
+                    </style>
+                    <style>
+                        #rec624966349 .t-btn[data-btneffects-first],
+                        #rec624966349 .t-btn[data-btneffects-second],
+                        #rec624966349 .t-btn[data-btneffects-third],
+                        #rec624966349 .t-submit[data-btneffects-first],
+                        #rec624966349 .t-submit[data-btneffects-second],
+                        #rec624966349 .t-submit[data-btneffects-third] {
+                        position: relative;
+                        overflow: hidden;
+                        isolation: isolate;
+                        }
+                        #rec624966349 .t-btn[data-btneffects-first="btneffects-flash"] .t-btn_wrap-effects,
+                        #rec624966349 .t-submit[data-btneffects-first="btneffects-flash"] .t-btn_wrap-effects {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        -webkit-transform: translateX(-85px);
+                        -ms-transform: translateX(-85px);
+                        transform: translateX(-85px);
+                        -webkit-animation-name: flash;
+                        animation-name: flash;
+                        -webkit-animation-duration: 3s;
+                        animation-duration: 3s;
+                        -webkit-animation-timing-function: linear;
+                        animation-timing-function: linear;
+                        -webkit-animation-iteration-count: infinite;
+                        animation-iteration-count: infinite;
+                        }
+                        #rec624966349 .t-btn[data-btneffects-first="btneffects-flash"] .t-btn_wrap-effects_md,
+                        #rec624966349 .t-submit[data-btneffects-first="btneffects-flash"] .t-btn_wrap-effects_md {
+                        -webkit-animation-name: flash-md;
+                        animation-name: flash-md;
+                        }
+                        #rec624966349 .t-btn[data-btneffects-first="btneffects-flash"] .t-btn_wrap-effects_lg,
+                        #rec624966349 .t-submit[data-btneffects-first="btneffects-flash"] .t-btn_wrap-effects_lg {
+                        -webkit-animation-name: flash-lg;
+                        animation-name: flash-lg;
+                        }
+                        #rec624966349 .t-btn[data-btneffects-first="btneffects-flash"] .t-btn_effects,
+                        #rec624966349 .t-submit[data-btneffects-first="btneffects-flash"] .t-btn_effects {
+                        background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, .1)), to(rgba(255, 255, 255, .4)));
+                        background: -webkit-linear-gradient(left, rgba(255, 255, 255, .1), rgba(255, 255, 255, .4));
+                        background: -o-linear-gradient(left, rgba(255, 255, 255, .1), rgba(255, 255, 255, .4));
+                        background: linear-gradient(90deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .4));
+                        width: 45px;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 30px;
+                        -webkit-transform: skewX(-45deg);
+                        -ms-transform: skewX(-45deg);
+                        transform: skewX(-45deg);
+                        }
+                        @-webkit-keyframes flash {
+                        20% {
+                        -webkit-transform: translateX(100%);
+                        transform: translateX(100%);
+                        }
+                        100% {
+                        -webkit-transform: translateX(100%);
+                        transform: translateX(100%);
+                        }
+                        }
+                        @keyframes flash {
+                        20% {
+                        -webkit-transform: translateX(100%);
+                        transform: translateX(100%);
+                        }
+                        100% {
+                        -webkit-transform: translateX(100%);
+                        transform: translateX(100%);
+                        }
+                        }
+                        @-webkit-keyframes flash-md {
+                        30% {
+                        -webkit-transform: translateX(100%);
+                        transform: translateX(100%);
+                        }
+                        100% {
+                        -webkit-transform: translateX(100%);
+                        transform: translateX(100%);
+                        }
+                        }
+                        @keyframes flash-md {
+                        30% {
+                        -webkit-transform: translateX(100%);
+                        transform: translateX(100%);
+                        }
+                        100% {
+                        -webkit-transform: translateX(100%);
+                        transform: translateX(100%);
+                        }
+                        }
+                        @-webkit-keyframes flash-lg {
+                        40% {
+                        -webkit-transform: translateX(100%);
+                        transform: translateX(100%);
+                        }
+                        100% {
+                        -webkit-transform: translateX(100%);
+                        transform: translateX(100%);
+                        }
+                        }
+                        @keyframes flash-lg {
+                        40% {
+                        -webkit-transform: translateX(100%);
+                        transform: translateX(100%);
+                        }
+                        100% {
+                        -webkit-transform: translateX(100%);
+                        transform: translateX(100%);
+                        }
+                        }
+                    </style>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        #rec624966349 .t-submit:hover, #rec624966349 .t-submit:focus-visible{background: #2e2e2e !important;}
+        #rec624966349 .t-submit{-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;}
+    </style>
+</div>
+{% endblock %}

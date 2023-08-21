@@ -1,0 +1,8 @@
+<!doctype html>
+<title>check File</title>
+<h1>check data</h1>
+{% for item in context %}
+<h2>{{ item.category }}</h2>
+<p>{{ item.image_name }} - {{ item.image_alt }}</p>
+<img src='data:image/jpeg;base64, {{ item.image_file }}'>
+{% endfor %}
