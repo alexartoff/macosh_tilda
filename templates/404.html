@@ -494,13 +494,9 @@
                     <div class="t182">
                         <div data-hook-content="covercontent">
                             <div class="t182__wrapper">
-                                <h1 class="t182__title t-title t-title_xl" style="color:#ffffff;font-weight:700;text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);" field="title">МаКошь</h1>
+                                <h1 class="t182__title t-title t-title_xl" style="color:#ffffff;font-weight:700;text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);" field="title">{{ context.h1_tag }}</h1>
                                 <div class="t182__descr t-descr t-descr_lg" style="color:#f0f0f0;font-weight:600;opacity:1;text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);" field="descr">
-                                    Здесь всё для тебя ❤ чтобы тебе помочь
-                                    <br>
-                                    <br>Браслеты по дате рождения, аксессуары
-                                    <br>Расчёты по дате рождения, таро, МАК
-                                    <br>Психологическое консультирование</div>
+                                    {{ context.h1_descr|safe }}</div>
                             </div>
                         </div>
                     </div>

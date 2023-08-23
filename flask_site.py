@@ -15,7 +15,7 @@ app = Flask(__name__, static_folder='static', template_folder='templates')
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 app.config['SERVER_NAME'] = os.environ.get('SERVER_NAME')
 SITE_URL = 'https://ma-cosh.ru'
-SITE_TITLE = 'title'
+SITE_TITLE = 'МаКошь'
 PHONE = '+7(951)456-21-19'
 FORM_ID = '#rec624966349'
 
@@ -24,10 +24,24 @@ FORM_ID = '#rec624966349'
 async def main():
     context = {
         'title': SITE_TITLE,
-        'h1_tag': 'h1_tag',
-        'h1_descr': 'h1_descr',
-        'meta_description': 'meta_description',
-        'meta_keywords': f'meta_keywords',
+        'h1_tag': SITE_TITLE,
+        'h1_descr': '''
+            Здесь всё для тебя ❤ чтобы тебе помочь
+            <br>
+            <br>Браслеты по дате рождения, аксессуары
+            <br>Расчёты по дате рождения, таро, МАК
+            <br>Психологическое консультирование
+        ''',
+        'meta_description': '''
+            Здесь всё для тебя ❤ чтобы тебе помочь
+            Браслеты по дате рождения, аксессуары
+            Расчёты по дате рождения, таро, МАК
+            Психологическое консультирование
+        ''',
+        'meta_keywords': '''
+            МаКошь, Браслеты, Браслеты по дате рождения, аксессуары, куклы-обереги, 
+            Расчёты по дате рождения, таро, МАК, Психологическое консультирование
+        ''',
         'meta_url': SITE_URL,
         'phone': PHONE,
     }
@@ -45,10 +59,19 @@ async def decor():
     }
     context = {
         'title': SITE_TITLE + ' - Браслеты - Свечи - Куклы',
-        'h1_tag': 'h1_tag',
-        'h1_descr': 'h1_descr',
-        'meta_description': 'meta_description',
-        'meta_keywords': f'meta_keywords',
+        'decor_descr': '''
+            Мы создаем <strong>браслеты и аксессуары ручной работы</strong>.
+            <br>Все предметы сделаны с любовью и вдохновением 
+            <strong>из качественных натуральных материалов</strong>.
+            <br>Выберите цвет, размер и стиль и носите их с удовольствием.
+        ''',
+        'meta_description': '''
+            Мы создаем браслеты и аксессуары ручной работы.
+            Все предметы сделаны с любовью и вдохновением 
+            из качественных натуральных материалов.
+            Выберите цвет, размер и стиль и носите их с удовольствием.
+        ''',
+        'meta_keywords': 'МаКошь, Браслеты, Браслеты по дате рождения, аксессуары, куклы-обереги',
         'meta_url': SITE_URL,
         'phone': PHONE,
         'braslet_text': await db.get_texts('braslet_card'),
@@ -85,10 +108,12 @@ async def neopsy():
     }
     context = {
         'title': SITE_TITLE + ' - Нетрадиционная психология',
-        'h1_tag': 'h1_tag',
-        'h1_descr': 'h1_descr',
-        'meta_description': 'meta_description',
-        'meta_keywords': f'meta_keywords',
+        'meta_description': '''
+            Помощь в сложных ситуациях. Разбор вашей личности, поиск ответов на тревожащие вопросы. 
+            Здесь нет хороших и плохих. Нет нудных советов и копания в душе. 
+            Полтора часа работы в лайтовом режиме
+        ''',
+        'meta_keywords': 'МаКошь, Расчёты по дате рождения, таро, МАК, Разбор личности',
         'meta_url': SITE_URL,
         'phone': PHONE,
         'neopsy_text': await db.get_texts('neopsy_card'),
@@ -126,10 +151,11 @@ async def psy():
     }
     context = {
         'title': SITE_TITLE + ' - Психологическое консультирование',
-        'h1_tag': 'h1_tag',
-        'h1_descr': 'h1_descr',
-        'meta_description': 'meta_description',
-        'meta_keywords': f'meta_keywords',
+        'meta_description': '''
+            Работа с профессиональным и опытным психологом.
+            Решение вопросов, мешающих жить. Вместе проще решать проблемы
+        ''',
+        'meta_keywords': 'МаКошь, Психологическое консультирование, Решение вопросов',
         'meta_url': SITE_URL,
         'phone': PHONE,
         'psy': await db.get_texts('psy_card'),
@@ -247,19 +273,56 @@ async def upload_text():
 @app.route('/macosh-orders-page', methods=('GET', 'POST'))
 async def get_orders():
     if request.method == 'GET':
-        data = await db.get_requests()
-        return render_template('orders.html', context=data)
+        context = {
+            'title': SITE_TITLE,
+            'h1_tag': SITE_TITLE,
+            'h1_descr': '''
+                    Здесь всё для тебя ❤ чтобы тебе помочь
+                    <br>
+                    <br>Браслеты по дате рождения, аксессуары
+                    <br>Расчёты по дате рождения, таро, МАК
+                    <br>Психологическое консультирование
+                ''',
+            'meta_description': '''
+                    Здесь всё для тебя ❤ чтобы тебе помочь
+                    Браслеты по дате рождения, аксессуары
+                    Расчёты по дате рождения, таро, МАК
+                    Психологическое консультирование
+                ''',
+            'meta_keywords': '''
+                    МаКошь, Браслеты, Браслеты по дате рождения, аксессуары, куклы-обереги, 
+                    Расчёты по дате рождения, таро, МАК, Психологическое консультирование
+                ''',
+            'meta_url': SITE_URL,
+            'phone': PHONE,
+        }
+        orders = await db.get_requests()
+        return render_template('orders.html', context=context, orders=orders)
 
 
 @app.errorhandler(404)
 def page_not_found(e):
-    print(f'404 - {e}')
+    # print(f'404 - {e}')
     context = {
         'title': SITE_TITLE,
-        'h1_tag': 'h1_tag',
-        'h1_descr': 'h1_descr',
-        'meta_description': 'meta_description',
-        'meta_keywords': f'meta_keywords',
+        'h1_tag': SITE_TITLE,
+        'h1_descr': '''
+            Здесь всё для тебя ❤ чтобы тебе помочь
+            <br>
+            <br>Браслеты по дате рождения, аксессуары
+            <br>Расчёты по дате рождения, таро, МАК
+            <br>Психологическое консультирование
+        ''',
+        'meta_description': '''
+            Здесь всё для тебя ❤ чтобы тебе помочь
+            Браслеты по дате рождения, аксессуары
+            Расчёты по дате рождения, таро, МАК
+            Психологическое консультирование
+        ''',
+        'meta_keywords': '''
+            МаКошь, Браслеты, Браслеты по дате рождения, аксессуары, куклы-обереги, 
+            Расчёты по дате рождения, таро, МАК, Психологическое консультирование
+        ''',
         'meta_url': SITE_URL,
         'phone': PHONE,
     }
