@@ -545,11 +545,11 @@
         <div class="t-container t-align_left">
             <div class="t-col t-col_10 ">
                 <div class="t474__descr t-descr t-descr_xxxl " field="descr" style="color:#f0f0f0;">
-                    Orders
+                    Заказы:
                 </div>
                 <div class="t474__descr t-descr t-descr_xl " field="descr" style="color:#f0f0f0; padding-top:30px;">
                     {% for item in context %}
-                    <p>{{ item.request_date.strftime('%Y-%m-%d %H:%m') }} --- User: {{ item.user_name }} ({{ item.user_contact }}) --- Category: {{ item.category }}<br/>Request: "{{ item.user_request }}"</p><br/>
+                    <p>{{ item.request_date.strftime('%Y-%m-%d %H:%m') }} --- Клиент: {{ item.user_name }} ({{ item.user_contact }}) --- Категория: {{ item.category }}<br/>Запрос: "{{ item.user_request }}"</p><br/>
                     {% endfor %}
                 </div>
             </div>

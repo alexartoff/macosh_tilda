@@ -526,7 +526,7 @@
             <li class="t526__col t-col t-col_6 t-list__item t-align_center t526__col-mobstyle">
                 <div class="t526__itemwrapper t526__itemwrapper_2">
                     <div class="t526__imgwrapper t-margin_auto" itemscope="" itemtype="http://schema.org/ImageObject">
-                        <div class="t526__bgimg t526__img_circle t-margin_auto t-bgimg loaded" style="background-image: url(&quot;data:image/jpeg;base64, {{ team_images.team[index].image_file }}&quot;);"></div>
+                        <div class="t526__bgimg t526__img_circle t-margin_auto t-bgimg loaded" style="background-image: url(&quot;{{ url_for('static', filename = team_images.team[index].image_name) }}&quot;);"></div>
                     </div>
                     <div class="t526__wrappercenter">
                         <div class="t526__persname t-name t-name_lg t526__bottommargin_sm" style="" field="li_persname__1478015636342">{{ context.psy_team[index].psy_name }}</div>
@@ -570,19 +570,6 @@
                 </div>
             </li>
             {% endfor %}
-<!--            <li class="t526__col t-col t-col_6 t-list__item t-align_center t526__col-mobstyle">-->
-<!--                <div class="t526__itemwrapper t526__itemwrapper_2">-->
-<!--                    <div class="t526__imgwrapper t-margin_auto" itemscope="" itemtype="http://schema.org/ImageObject">-->
-<!--                        <meta itemprop="image" content="{{ url_for('static', filename= 'psy_spec_02.png') }}">-->
-<!--                        <div class="t526__bgimg t526__img_circle t-margin_auto t-bgimg loaded" data-original="{{ url_for('static', filename= 'psy_spec_02.png') }}" bgimgfield="li_img__1478015651388" style="background-image: url(&quot;{{ url_for('static', filename= 'psy_spec_02.png') }}&quot;);"></div>-->
-<!--                    </div>-->
-<!--                    <div class="t526__wrappercenter">-->
-<!--                        <div class="t526__persname t-name t-name_lg t526__bottommargin_sm" style="" field="li_persname__1478015651388">Julia Bush</div>-->
-<!--                        <div class="t526__persdescr t-descr t-descr_xxs t526__bottommargin_lg" style="" field="li_persdescr__1478015651388">Design Director</div>-->
-<!--                        <div class="t526__perstext t-text t-text_xs" style="" field="li_text__1478015651388">Julia takes care of everything you can see. She spent five years in London learning visual communication. She uses her knowledge to make the world a little more beautiful.</div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </li>-->
         </ul>
     </div>
     <style>
@@ -888,7 +875,8 @@
                             <div class="t-slds__items-wrapper w3-content w3-display-container" style="height:560px; ">
                                 {% for item in images.psy_img %}
                                 <div class="w3-display-container mySlides_psy">
-                                    <img src='data:image/jpeg;base64, {{ item.image_file }}' style="width:100%;" alt="{{ item.image_alt }}">
+                                    <!-- <img src='data:image/jpeg;base64, { item.image_file }' style="width:100%;" alt="{{ item.image_alt }}"> -->
+                                    <img src="{{ url_for('static', filename = item.image_name) }}" style="width:100%;" alt="{{ item.image_alt }}">
                                     <div class="w3-display-topleft w3-medium w3-container w3-padding w3-black">{{ item.image_alt|truncate(60, False, '...', 0) }}</div>
                                 </div>
                                 {% endfor %}

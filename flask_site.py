@@ -15,7 +15,7 @@ app = Flask(__name__, static_folder='static', template_folder='templates')
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 app.config['SERVER_NAME'] = os.environ.get('SERVER_NAME')
 SITE_URL = 'https://ma-cosh.ru'
-SITE_TITLE = 'МаКошь'
+SITE_TITLE = 'title'
 PHONE = '+7(951)456-21-19'
 FORM_ID = '#rec624966349'
 
@@ -38,10 +38,10 @@ async def main():
 async def decor():
     date = datetime.now()
     images = {
-        'braslet_img': await decode_images('braslet_card'),
-        'svechi_img': await decode_images('svechi_card'),
-        'kukli_img': await decode_images('kukli_card'),
-        'slider': await decode_images('slider'),
+        'braslet_img': await decode_images('braslet_card', decode=False),
+        'svechi_img': await decode_images('svechi_card', decode=False),
+        'kukli_img': await decode_images('kukli_card', decode=False),
+        'slider': await decode_images('slider', decode=False),
     }
     context = {
         'title': SITE_TITLE + ' - Браслеты - Свечи - Куклы',
@@ -81,7 +81,7 @@ async def decor():
 async def neopsy():
     date = datetime.now()
     images = {
-        'neopsy_img': await decode_images('neopsy_card'),
+        'neopsy_img': await decode_images('neopsy_card', decode=False),
     }
     context = {
         'title': SITE_TITLE + ' - Нетрадиционная психология',
@@ -119,10 +119,10 @@ async def neopsy():
 async def psy():
     date = datetime.now()
     images = {
-        'psy_img': await decode_images('psy_card'),
+        'psy_img': await decode_images('psy_card', decode=False),
     }
     team_images = {
-        'team': await decode_images('psy_spec'),
+        'team': await decode_images('psy_spec', decode=False),
     }
     context = {
         'title': SITE_TITLE + ' - Психологическое консультирование',
@@ -244,7 +244,7 @@ async def upload_text():
 #         return render_template('check.html', context=context)
 
 
-@app.route('/orders', methods=('GET', 'POST'))
+@app.route('/macosh-orders-page', methods=('GET', 'POST'))
 async def get_orders():
     if request.method == 'GET':
         data = await db.get_requests()

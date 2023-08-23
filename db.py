@@ -130,12 +130,19 @@ async def add_text(category, title, price, old_price, description):
         print(f'[ERROR] - add_text/Exception - {e}')
 
 
-async def get_images(category_name):
-    sql_req = f"""
-    SELECT image_file, image_name, image_alt
-    FROM category_images
-    WHERE category='{category_name}';
-    """
+async def get_images(category_name, with_bin=False):
+    if with_bin:
+        sql_req = f"""
+        SELECT image_file, image_name, image_alt
+        FROM category_images
+        WHERE category='{category_name}';
+        """
+    else:
+        sql_req = f"""
+        SELECT image_name, image_alt
+        FROM category_images
+        WHERE category='{category_name}';
+        """
 
     try:
         connection = await asyncpg.connect(
