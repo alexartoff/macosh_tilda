@@ -16,7 +16,7 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 app.config['SERVER_NAME'] = os.environ.get('SERVER_NAME')
 SITE_URL = 'https://ma-cosh.ru'
 SITE_TITLE = 'МаКошь'
-PHONE = '+7(951)456-21-19'
+PHONE = '+7 (951) 456-21-19'
 FORM_ID = '#rec624966349'
 
 
